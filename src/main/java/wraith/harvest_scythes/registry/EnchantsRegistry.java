@@ -1,45 +1,30 @@
 package wraith.harvest_scythes.registry;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import wraith.harvest_scythes.HarvestScythes;
-import wraith.harvest_scythes.enchantment.BlindHarvestCurseEnchantment;
-import wraith.harvest_scythes.enchantment.CropReaperEnchantment;
-import wraith.harvest_scythes.enchantment.LeafEaterEnchantment;
-
-import java.util.HashMap;
-import java.util.function.Supplier;
+import wraith.harvest_scythes.util.HSUtils;
 
 public final class EnchantsRegistry {
 
-    private static final DeferredRegister<Enchantment> ENCHANTMENT_DEFERRED = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, HarvestScythes.MOD_ID);
-    public static final HashMap<String, RegistryObject<Enchantment>> ENCHANTMENTS = new HashMap<>();
+    public static final ResourceKey<Enchantment> CROP_REAPER = create("crop_reaper");
+    public static final ResourceKey<Enchantment> LEAF_EATER = create("leaf_eater");
+    public static final ResourceKey<Enchantment> BLIND_HARVEST_CURSE = create("blind_harvest_curse");
 
     private EnchantsRegistry() {}
 
-    public static void register(IEventBus eventBus) {
-        ENCHANTMENT_DEFERRED.register(eventBus);
+    private static ResourceKey<Enchantment> create(String id) {
+        return ResourceKey.create(Registries.ENCHANTMENT, HSUtils.ID(id));
     }
 
-    public static void registerEnchantments() {
-        if (!ENCHANTMENTS.isEmpty()) {
-            return;
+    public static int getLevel(ItemStack stack, ResourceKey<Enchantment> enchantment) {
+        for (var entry : stack.getEnchantments().entrySet()) {
+            if (entry.getKey().is(enchantment)) {
+                return entry.getIntValue();
+            }
         }
-        registerEnchantment("crop_reaper", CropReaperEnchantment::new);
-        registerEnchantment("leaf_eater", LeafEaterEnchantment::new);
-        registerEnchantment("blind_harvest_curse", BlindHarvestCurseEnchantment::new);
-    }
-
-    private static void registerEnchantment(String id, Supplier<Enchantment> enchantment) {
-        ENCHANTMENTS.put(id, ENCHANTMENT_DEFERRED.register(id, enchantment));
-    }
-
-    public static Enchantment get(String id) {
-        RegistryObject<Enchantment> enchantment = ENCHANTMENTS.get(id);
-        return enchantment != null && enchantment.isPresent() ? enchantment.get() : null;
+        return 0;
     }
 
 }

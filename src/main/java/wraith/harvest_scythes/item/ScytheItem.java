@@ -4,17 +4,17 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 import wraith.harvest_scythes.api.event.HarvestEvent;
 import wraith.harvest_scythes.api.event.SingleHarvestEvent;
 import wraith.harvest_scythes.api.scythe.HSScythesEvents;
@@ -37,11 +36,11 @@ public class ScytheItem extends HoeItem {
     protected int harvestRadius;
 
     public ScytheItem(Tier material, int attackDamage, float attackSpeed, Item.Properties settings) {
-        this(material, attackDamage, attackSpeed, getLowerRadius(material.getLevel()), settings);
+        this(material, attackDamage, attackSpeed, getLowerRadius(HSUtils.getTierLevel(material)), settings);
     }
 
     public ScytheItem(Tier material, int attackDamage, float attackSpeed, int harvestRadius, Item.Properties settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, settings.attributes(DiggerItem.createAttributes(material, attackDamage, attackSpeed)));
         this.harvestRadius = harvestRadius;
     }
 
@@ -70,8 +69,8 @@ public class ScytheItem extends HoeItem {
         var stack = user.getItemInHand(hand);
         var item = stack.getItem();
 
-        int lvl = EnchantmentHelper.getItemEnchantmentLevel(EnchantsRegistry.get("crop_reaper"), stack);
-        boolean prematureHarvest = EnchantmentHelper.getItemEnchantmentLevel(EnchantsRegistry.get("blind_harvest_curse"), stack) > 0;
+        int lvl = EnchantsRegistry.getLevel(stack, EnchantsRegistry.CROP_REAPER);
+        boolean prematureHarvest = EnchantsRegistry.getLevel(stack, EnchantsRegistry.BLIND_HARVEST_CURSE) > 0;
         int radius = (int) (Math.floor(lvl / 2.0) + harvestRadius);
         boolean circleHarvest = shouldBeCircle(miningLevel + lvl);
 
@@ -116,15 +115,13 @@ public class ScytheItem extends HoeItem {
                     }
                     if (damageTool > 0) {
                         totalBlocks += damageTool;
-                        var takeDamage = HSUtils.getRandomIntInRange(0, EnchantmentHelper.getItemEnchantmentLevel(Enchantments.UNBREAKING, stack)) == 0;
+                        var takeDamage = HSUtils.getRandomIntInRange(0, EnchantsRegistry.getLevel(stack, Enchantments.UNBREAKING)) == 0;
                         HSScythesEvents.onSingleHarvest(new SingleHarvestEvent(world, user, stack, blockState, cropPos, damageTool, totalBlocks, takeDamage));
                         if (!takeDamage) {
                             continue;
                         }
                         totalDamage += damageTool;
-                        if (user instanceof ServerPlayer serverPlayer) {
-                            stack.hurt(damageTool, serverPlayer.getRandom(), serverPlayer);
-                        }
+                        stack.hurtAndBreak(damageTool, user, EquipmentSlot.MAINHAND);
                         if (stack.getItem() != item) {
                             HSScythesEvents.onHarvest(new HarvestEvent(world, user, stack, totalBlocks, totalDamage));
                             return InteractionResultHolder.success(stack);
@@ -139,15 +136,15 @@ public class ScytheItem extends HoeItem {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player user, InteractionHand hand) {
-        return world.isClientSide ? InteractionResultHolder.fail(user.getItemInHand(hand)) : harvest(this.harvestRadius, this.getTier().getLevel(), world, user, hand);
+        return world.isClientSide ? InteractionResultHolder.fail(user.getItemInHand(hand)) : harvest(this.harvestRadius, HSUtils.getTierLevel(this.getTier()), world, user, hand);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
-        super.appendHoverText(stack, world, tooltip, context);
-        int lvl = EnchantmentHelper.getItemEnchantmentLevel(EnchantsRegistry.get("crop_reaper"), stack);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, context, tooltip, flag);
+        int lvl = EnchantsRegistry.getLevel(stack, EnchantsRegistry.CROP_REAPER);
         int radius = (int) (Math.floor(lvl / 2.0) + harvestRadius);
-        boolean circleHarvest = shouldBeCircle(this.getTier().getLevel() + lvl);
+        boolean circleHarvest = shouldBeCircle(HSUtils.getTierLevel(this.getTier()) + lvl);
         tooltip.add(Component.translatable("harvest_scythes.scythe_tooltip.radius", Component.translatable("harvest_scythes.scythe_tooltip.radius.arg_color").append(String.valueOf(radius))));
         tooltip.add(Component.translatable("harvest_scythes.scythe_tooltip.circle", Component.translatable("harvest_scythes.scythe_tooltip.circle.arg_color").append(String.valueOf(circleHarvest))));
     }
@@ -157,7 +154,7 @@ public class ScytheItem extends HoeItem {
     }
 
     public boolean hasCircleHarvset() {
-        return shouldBeCircle(this.getTier().getLevel());
+        return shouldBeCircle(HSUtils.getTierLevel(this.getTier()));
     }
 
 }

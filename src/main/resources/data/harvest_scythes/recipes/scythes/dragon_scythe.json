@@ -1,21 +1,21 @@
 {
   "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "ender_dragon_loot:dragon_upgrade_template"
+  },
   "base": {
     "item": "harvest_scythes:netherite_scythe"
   },
   "addition": {
-    "item": "dragonloot:dragon_scale"
+    "item": "ender_dragon_loot:dragon_scale"
   },
   "result": {
-    "item": "harvest_scythes:dragon_scythe"
+    "id": "harvest_scythes:dragon_scythe"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  },
-  "conditions": [
+  "neoforge:conditions": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "dragonloot"
+      "type": "neoforge:mod_loaded",
+      "modid": "ender_dragon_loot"
     }
   ]
 }

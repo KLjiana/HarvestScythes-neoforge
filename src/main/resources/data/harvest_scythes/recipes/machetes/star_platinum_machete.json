@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "tag": "mythicmetals:star_platinum"
-    },
-    "|": {
-      "tag": "c:wood_sticks"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:star_platinum_machete",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "mythicmetals"
-    }
-  ],
-  "pattern": [
-    "## ",
-    " # ",
-    " | "
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "tag":  "mythicmetals:star_platinum"
+                      },
+                "|":  {
+                          "tag":  "c:rods/wooden"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:star_platinum_machete"
+               },
+    "pattern":  [
+                    "## ",
+                    " # ",
+                    " | "
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "mythicmetals"
+                                }
+                            ]
 }

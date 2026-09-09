@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:smithing_transform",
-  "base": {
-    "item": "harvest_scythes:iron_machete"
-  },
-  "addition": {
-    "item": "winterly:cryomarble"
-  },
-  "result": {
-    "item": "harvest_scythes:cryomarble_machete"
-  },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "winterly"
-    }
-  ]
+    "type":  "minecraft:smithing_transform",
+    "base":  {
+                 "item":  "harvest_scythes:iron_machete"
+             },
+    "addition":  {
+                     "item":  "winterly:cryomarble"
+                 },
+    "result":  {
+                   "id":  "harvest_scythes:cryomarble_machete"
+               },
+    "template":  {
+                     "item":  "minecraft:netherite_upgrade_smithing_template"
+                 },
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "winterly"
+                                }
+                            ]
 }

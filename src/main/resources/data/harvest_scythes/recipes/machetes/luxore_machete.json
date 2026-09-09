@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "item": "luxore:luxore_ingot"
-    },
-    "|": {
-      "tag": "c:wood_sticks"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:luxore_machete",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "luxore"
-    }
-  ],
-  "pattern": [
-    "## ",
-    " # ",
-    " | "
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "item":  "luxore:luxore_ingot"
+                      },
+                "|":  {
+                          "tag":  "c:rods/wooden"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:luxore_machete"
+               },
+    "pattern":  [
+                    "## ",
+                    " # ",
+                    " | "
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "luxore"
+                                }
+                            ]
 }

@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "tag": "c:alexandrite"
-    },
-    "|": {
-      "tag": "c:wood_sticks"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:alexandrite_scythe",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "more_gems"
-    }
-  ],
-  "pattern": [
-    "###",
-    "  |",
-    "  |"
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "tag":  "c:alexandrite"
+                      },
+                "|":  {
+                          "tag":  "c:rods/wooden"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:alexandrite_scythe"
+               },
+    "pattern":  [
+                    "###",
+                    "  |",
+                    "  |"
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "more_gems"
+                                }
+                            ]
 }

@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "item": "minecraft:iron_ingot"
-    },
-    "|": {
-      "tag": "c:wood_sticks"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:iron_scythe",
-    "count": 1
-  },
-  "pattern": [
-    "###",
-    "  |",
-    "  |"
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "item":  "minecraft:iron_ingot"
+                      },
+                "|":  {
+                          "tag":  "c:rods/wooden"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:iron_scythe"
+               },
+    "pattern":  [
+                    "###",
+                    "  |",
+                    "  |"
+                ]
 }

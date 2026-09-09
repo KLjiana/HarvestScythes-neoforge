@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "tag": "c:kunzite"
-    },
-    "|": {
-      "tag": "c:wood_sticks"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:nm_kunzite_machete",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "more_gems"
-    }
-  ],
-  "pattern": [
-    "## ",
-    " # ",
-    " | "
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "tag":  "c:kunzite"
+                      },
+                "|":  {
+                          "tag":  "c:rods/wooden"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:nm_kunzite_machete"
+               },
+    "pattern":  [
+                    "## ",
+                    " # ",
+                    " | "
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "more_gems"
+                                }
+                            ]
 }

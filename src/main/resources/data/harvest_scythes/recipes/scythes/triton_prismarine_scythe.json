@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "item": "fantasycraft:prismarine_ingot"
-    },
-    "|": {
-      "item": "fantasycraft:stone_rod"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:triton_prismarine_scythe",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "fantasycraft"
-    }
-  ],
-  "pattern": [
-    "###",
-    "  |",
-    "  |"
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "item":  "fantasycraft:prismarine_ingot"
+                      },
+                "|":  {
+                          "item":  "fantasycraft:stone_rod"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:triton_prismarine_scythe"
+               },
+    "pattern":  [
+                    "###",
+                    "  |",
+                    "  |"
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "fantasycraft"
+                                }
+                            ]
 }

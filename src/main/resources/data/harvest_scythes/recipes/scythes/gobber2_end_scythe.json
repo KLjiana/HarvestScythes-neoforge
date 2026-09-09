@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "item": "gobber2:gobber2_ingot_end"
-    },
-    "|": {
-      "item": "gobber2:gobber2_rod_end"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:gobber2_end_scythe",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "gobber2"
-    }
-  ],
-  "pattern": [
-    "###",
-    "  |",
-    "  |"
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "item":  "gobber2:gobber2_ingot_end"
+                      },
+                "|":  {
+                          "item":  "gobber2:gobber2_rod_end"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:gobber2_end_scythe"
+               },
+    "pattern":  [
+                    "###",
+                    "  |",
+                    "  |"
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "gobber2"
+                                }
+                            ]
 }

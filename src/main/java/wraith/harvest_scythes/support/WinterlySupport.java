@@ -11,9 +11,9 @@ public class WinterlySupport {
     private WinterlySupport() {}
 
     public static void loadItems() {
-        ItemRegistry.registerItem("cryomarble_scythe", () -> new ScytheItem(Tiers.DIAMOND, new Item.Properties()));
+        ItemRegistry.registerItem("cryomarble_scythe", properties -> new ScytheItem(Tiers.DIAMOND, properties));
 
-        ItemRegistry.registerItem("cryomarble_machete", () -> new MacheteItem(Tiers.DIAMOND, new Item.Properties()));
+        ItemRegistry.registerItem("cryomarble_machete", properties -> new MacheteItem(Tiers.DIAMOND, properties));
     }
 
 }

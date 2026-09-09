@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "harvest_scythes:wooden_scythe",
+    "harvest_scythes:stone_scythe",
+    "harvest_scythes:iron_scythe",
+    "harvest_scythes:golden_scythe",
+    "harvest_scythes:diamond_scythe",
+    "harvest_scythes:netherite_scythe",
+    "harvest_scythes:creative_scythe",
+    {
+      "id": "harvest_scythes:dragon_scythe",
+      "required": false
+    }
+  ]
+}

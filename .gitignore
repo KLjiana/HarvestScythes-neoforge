@@ -28,6 +28,10 @@ bin/
 
 run/
 
+# neoforge dev server
+
+server/
+
 # datagen
 
 datagen/recipes/

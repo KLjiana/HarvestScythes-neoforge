@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "item": "naturesminerals:kunzite_ingot"
-    },
-    "|": {
-      "item": "minecraft:stick"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:kunzite_machete",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "naturesminerals"
-    }
-  ],
-  "pattern": [
-    "## ",
-    " # ",
-    " | "
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "item":  "naturesminerals:kunzite_ingot"
+                      },
+                "|":  {
+                          "item":  "minecraft:stick"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:kunzite_machete"
+               },
+    "pattern":  [
+                    "## ",
+                    " # ",
+                    " | "
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "naturesminerals"
+                                }
+                            ]
 }

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "harvest_scythes:wooden_machete",
+    "harvest_scythes:stone_machete",
+    "harvest_scythes:iron_machete",
+    "harvest_scythes:golden_machete",
+    "harvest_scythes:diamond_machete",
+    "harvest_scythes:netherite_machete",
+    "harvest_scythes:creative_machete",
+    {
+      "id": "harvest_scythes:dragon_machete",
+      "required": false
+    }
+  ]
+}

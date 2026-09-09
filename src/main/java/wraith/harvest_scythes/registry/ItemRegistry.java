@@ -7,39 +7,39 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import wraith.harvest_scythes.HarvestScythes;
 import wraith.harvest_scythes.item.MacheteItem;
 import wraith.harvest_scythes.item.ScytheItem;
 
 import java.util.HashMap;
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 public final class ItemRegistry {
 
-    private static final DeferredRegister<Item> ITEM_DEFERRED = DeferredRegister.create(ForgeRegistries.ITEMS, HarvestScythes.MOD_ID);
+    private static final DeferredRegister.Items ITEM_DEFERRED = DeferredRegister.createItems(HarvestScythes.MOD_ID);
     private static final DeferredRegister<CreativeModeTab> TAB_DEFERRED = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, HarvestScythes.MOD_ID);
-    private static final HashMap<String, RegistryObject<Item>> ITEMS = new HashMap<>();
+    private static final HashMap<String, DeferredItem<Item>> ITEMS = new HashMap<>();
 
-    public static final RegistryObject<CreativeModeTab> SCYTHES = TAB_DEFERRED.register("scythes", () -> CreativeModeTab.builder()
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SCYTHES = TAB_DEFERRED.register("scythes", () -> CreativeModeTab.builder()
             .icon(() -> new ItemStack(get("diamond_scythe")))
             .title(Component.translatable("itemGroup.harvest_scythes.scythes"))
-            .displayItems((displayContext, entries) -> ITEMS.values().stream().map(RegistryObject::get).filter(entry -> entry instanceof ScytheItem).map(ItemStack::new).forEach(entries::accept))
+            .displayItems((displayContext, entries) -> ITEMS.values().stream().map(DeferredItem::get).filter(entry -> entry instanceof ScytheItem).map(ItemStack::new).forEach(entries::accept))
             .build());
-    public static final RegistryObject<CreativeModeTab> MACHETES = TAB_DEFERRED.register("machetes", () -> CreativeModeTab.builder()
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> MACHETES = TAB_DEFERRED.register("machetes", () -> CreativeModeTab.builder()
             .icon(() -> new ItemStack(get("diamond_machete")))
             .title(Component.translatable("itemGroup.harvest_scythes.machetes"))
-            .displayItems((displayContext, entries) -> ITEMS.values().stream().map(RegistryObject::get).filter(entry -> entry instanceof MacheteItem).map(ItemStack::new).forEach(entries::accept))
+            .displayItems((displayContext, entries) -> ITEMS.values().stream().map(DeferredItem::get).filter(entry -> entry instanceof MacheteItem).map(ItemStack::new).forEach(entries::accept))
             .build());
 
     private ItemRegistry() {}
 
     public static Item get(String id) {
-        RegistryObject<Item> item = ITEMS.get(id);
-        return item != null && item.isPresent() ? item.get() : Items.AIR;
+        DeferredItem<Item> item = ITEMS.get(id);
+        return item != null && item.isBound() ? item.get() : Items.AIR;
     }
 
     public static void register(IEventBus eventBus) {
@@ -51,28 +51,28 @@ public final class ItemRegistry {
         if (!ITEMS.isEmpty()) {
             return;
         }
-        registerItem("wooden_scythe", () -> new ScytheItem(Tiers.WOOD, new Item.Properties()));
-        registerItem("stone_scythe", () -> new ScytheItem(Tiers.STONE, new Item.Properties()));
-        registerItem("iron_scythe", () -> new ScytheItem(Tiers.IRON, new Item.Properties()));
-        registerItem("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 3, new Item.Properties()));
-        registerItem("diamond_scythe", () -> new ScytheItem(Tiers.DIAMOND, new Item.Properties()));
-        registerItem("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
-        registerItem("creative_scythe", () -> new ScytheItem(Tiers.NETHERITE, 20, new Item.Properties().fireResistant().stacksTo(1)));
+        registerItem("wooden_scythe", properties -> new ScytheItem(Tiers.WOOD, properties));
+        registerItem("stone_scythe", properties -> new ScytheItem(Tiers.STONE, properties));
+        registerItem("iron_scythe", properties -> new ScytheItem(Tiers.IRON, properties));
+        registerItem("golden_scythe", properties -> new ScytheItem(Tiers.GOLD, 3, properties));
+        registerItem("diamond_scythe", properties -> new ScytheItem(Tiers.DIAMOND, properties));
+        registerItem("netherite_scythe", properties -> new ScytheItem(Tiers.NETHERITE, properties.fireResistant()));
+        registerItem("creative_scythe", properties -> new ScytheItem(Tiers.NETHERITE, 20, properties.fireResistant().stacksTo(1)));
 
-        registerItem("wooden_machete", () -> new MacheteItem(Tiers.WOOD, new Item.Properties()));
-        registerItem("stone_machete", () -> new MacheteItem(Tiers.STONE, new Item.Properties()));
-        registerItem("iron_machete", () -> new MacheteItem(Tiers.IRON, new Item.Properties()));
-        registerItem("golden_machete", () -> new MacheteItem(Tiers.GOLD, 100, new Item.Properties()));
-        registerItem("diamond_machete", () -> new MacheteItem(Tiers.DIAMOND, new Item.Properties()));
-        registerItem("netherite_machete", () -> new MacheteItem(Tiers.NETHERITE, new Item.Properties().fireResistant()));
-        registerItem("creative_machete", () -> new MacheteItem(Tiers.NETHERITE, 240, new Item.Properties().fireResistant().stacksTo(1)));
+        registerItem("wooden_machete", properties -> new MacheteItem(Tiers.WOOD, properties));
+        registerItem("stone_machete", properties -> new MacheteItem(Tiers.STONE, properties));
+        registerItem("iron_machete", properties -> new MacheteItem(Tiers.IRON, properties));
+        registerItem("golden_machete", properties -> new MacheteItem(Tiers.GOLD, 100, properties));
+        registerItem("diamond_machete", properties -> new MacheteItem(Tiers.DIAMOND, properties));
+        registerItem("netherite_machete", properties -> new MacheteItem(Tiers.NETHERITE, properties.fireResistant()));
+        registerItem("creative_machete", properties -> new MacheteItem(Tiers.NETHERITE, 240, properties.fireResistant().stacksTo(1)));
     }
 
-    public static void registerItem(String id, Supplier<Item> item) {
+    public static void registerItem(String id, Function<Item.Properties, Item> item) {
         if (ITEMS.containsKey(id)) {
             return;
         }
-        ITEMS.put(id, ITEM_DEFERRED.register(id, item));
+        ITEMS.put(id, ITEM_DEFERRED.registerItem(id, item));
     }
 
     public static int count() {

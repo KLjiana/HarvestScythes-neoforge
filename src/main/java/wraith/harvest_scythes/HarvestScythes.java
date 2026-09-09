@@ -4,35 +4,35 @@ import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import wraith.harvest_scythes.api.scythe.HSScythesEvents;
 import wraith.harvest_scythes.item.MacheteItem;
 import wraith.harvest_scythes.registry.EnchantsRegistry;
 import wraith.harvest_scythes.registry.ItemRegistry;
-import wraith.harvest_scythes.support.GobberSupport;
+import wraith.harvest_scythes.support.DragonLootSupport;
 import wraith.harvest_scythes.util.Config;
 
 @Mod(HarvestScythes.MOD_ID)
-@Mod.EventBusSubscriber(modid = HarvestScythes.MOD_ID)
+@EventBusSubscriber(modid = HarvestScythes.MOD_ID)
 public class HarvestScythes {
 
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "harvest_scythes";
     private static boolean loaded = false;
 
-    public HarvestScythes() {
-        ItemRegistry.register(FMLJavaModLoadingContext.get().getModEventBus());
-        EnchantsRegistry.register(FMLJavaModLoadingContext.get().getModEventBus());
+    public HarvestScythes(IEventBus modEventBus, ModContainer modContainer) {
+        ItemRegistry.register(modEventBus);
         load();
     }
 
@@ -44,23 +44,22 @@ public class HarvestScythes {
         LOGGER.info("Loading [Harvest Scythes]");
 
         ItemRegistry.init();
-        EnchantsRegistry.registerEnchantments();
 
-//        if (ModList.get().isLoaded("dragonloot")) {
-//            LOGGER.info("[DragonLoot] detected. Loading supported items.");
-//            DragonLootSupport.loadItems();
-//        }
-        if (ModList.get().isLoaded("gobber2")) {
-            LOGGER.info("[Gobber] detected. Loading supported items.");
-            GobberSupport.loadItems();
+        if (ModList.get().isLoaded("ender_dragon_loot")) {
+            LOGGER.info("[Ender Dragon Loot] detected. Loading supported items.");
+            DragonLootSupport.loadItems();
         }
+//        if (ModList.get().isLoaded("gobber2")) {
+//            LOGGER.info("[Gobber] detected. Loading supported items.");
+//            GobberSupport.loadItems();
+//        }
         if (ModList.get().isLoaded("pigsteel")) {
             LOGGER.info("[PigSteel] detected. Loading supported recipes.");
         }
         Config.getInstance();
         HSScythesEvents.addSingleHarvestListener(event -> {
             var state = event.blockState();
-            if (!(state.getBlock() instanceof CropBlock) || EnchantmentHelper.getItemEnchantmentLevel(EnchantsRegistry.get("blind_harvest_curse"), event.stack()) > 0) {
+            if (!(state.getBlock() instanceof CropBlock) || EnchantsRegistry.getLevel(event.stack(), EnchantsRegistry.BLIND_HARVEST_CURSE) > 0) {
                 return;
             }
             SoundType sound = state.getSoundType();

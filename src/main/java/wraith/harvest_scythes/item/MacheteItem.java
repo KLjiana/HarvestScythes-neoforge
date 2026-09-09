@@ -3,20 +3,18 @@ package wraith.harvest_scythes.item;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 import wraith.harvest_scythes.api.event.HarvestEvent;
 import wraith.harvest_scythes.api.event.SingleHarvestEvent;
 import wraith.harvest_scythes.api.machete.HSMacheteEvents;
@@ -39,7 +37,7 @@ public class MacheteItem extends SwordItem {
     protected int harvestDepth;
 
     public MacheteItem(Tier material, int attackDamage, float attackSpeed, int harvestDepth, Item.Properties settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(material, settings.attributes(SwordItem.createAttributes(material, attackDamage, attackSpeed)));
         this.harvestDepth = harvestDepth;
     }
 
@@ -56,14 +54,14 @@ public class MacheteItem extends SwordItem {
     }
 
     private static int getDepthFromMaterial(Tier material) {
-        return (Math.min(10, material.getLevel() + 1)) * 18;
+        return (Math.min(10, HSUtils.getTierLevel(material) + 1)) * 18;
     }
 
     public static int getHarvestDepth(ItemStack stack) {
         if (!(stack.getItem() instanceof MacheteItem machete)) {
             return 0;
         }
-        var enchantLevel = EnchantmentHelper.getItemEnchantmentLevel(EnchantsRegistry.get("leaf_eater"), stack);
+        var enchantLevel = EnchantsRegistry.getLevel(stack, EnchantsRegistry.LEAF_EATER);
         return Mth.clamp(machete.getRegularHarvestDepth() + Mth.clamp(enchantLevel * 18, 0, 240), 0, 240);
     }
 
@@ -103,11 +101,11 @@ public class MacheteItem extends SwordItem {
                         }
                     }
                 }
-                var takeDamage = HSUtils.getRandomIntInRange(0, EnchantmentHelper.getItemEnchantmentLevel(Enchantments.UNBREAKING, stack)) == 0;
+                var takeDamage = HSUtils.getRandomIntInRange(0, EnchantsRegistry.getLevel(stack, Enchantments.UNBREAKING)) == 0;
                 HSMacheteEvents.onSingleHarvest(new SingleHarvestEvent(world, player, stack, curState, curPos, 1, blocksHarvested, takeDamage));
                 if (!isCreative && takeDamage) {
                     ++damage;
-                    stack.hurt(1, player.getRandom(), player instanceof ServerPlayer serverPlayer ? serverPlayer : null);
+                    stack.hurtAndBreak(1, player, EquipmentSlot.MAINHAND);
                 }
             }
             HSMacheteEvents.onHarvest(new HarvestEvent(world, player, stack, blocksHarvested, damage));
@@ -122,8 +120,8 @@ public class MacheteItem extends SwordItem {
     }
 
     @Override
-    public boolean isCorrectToolForDrops(BlockState state) {
-        return super.isCorrectToolForDrops(state) || state.getBlock() instanceof LeavesBlock;
+    public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
+        return super.isCorrectToolForDrops(stack, state) || state.getBlock() instanceof LeavesBlock;
     }
 
     @Override
@@ -132,8 +130,8 @@ public class MacheteItem extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level world, List<Component> tooltip, TooltipFlag context) {
-        super.appendHoverText(stack, world, tooltip, context);
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+        super.appendHoverText(stack, context, tooltip, flag);
         tooltip.add(Component.translatable("harvest_scythes.machete_tooltip.depth", Component.translatable("harvest_scythes.machete_tooltip.depth.arg_color").append(String.valueOf(getHarvestDepth(stack)))));
     }
 

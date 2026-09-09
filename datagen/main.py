@@ -39,69 +39,69 @@ base_model = {
 }
 
 recipes = [
-    {'type': 'crafting', 'item': 'harvest_scythes:wooden', 'material': '#minecraft:planks', 'rod': '#c:wood_sticks'},
-    {'type': 'crafting', 'item': 'harvest_scythes:stone', 'material': 'minecraft:cobblestone', 'rod': '#c:wood_sticks'},
-    {'type': 'crafting', 'item': 'harvest_scythes:iron', 'material': 'minecraft:iron_ingot', 'rod': '#c:wood_sticks'},
-    {'type': 'crafting', 'item': 'harvest_scythes:golden', 'material': 'minecraft:gold_ingot', 'rod': '#c:wood_sticks'},
-    {'type': 'crafting', 'item': 'harvest_scythes:diamond', 'material': 'minecraft:diamond', 'rod': '#c:wood_sticks'},
+    {'type': 'crafting', 'item': 'harvest_scythes:wooden', 'material': '#minecraft:planks', 'rod': '#c:rods/wooden'},
+    {'type': 'crafting', 'item': 'harvest_scythes:stone', 'material': 'minecraft:cobblestone', 'rod': '#c:rods/wooden'},
+    {'type': 'crafting', 'item': 'harvest_scythes:iron', 'material': 'minecraft:iron_ingot', 'rod': '#c:rods/wooden'},
+    {'type': 'crafting', 'item': 'harvest_scythes:golden', 'material': 'minecraft:gold_ingot', 'rod': '#c:rods/wooden'},
+    {'type': 'crafting', 'item': 'harvest_scythes:diamond', 'material': 'minecraft:diamond', 'rod': '#c:rods/wooden'},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:adamantite', 'material': '#c:adamantite_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:aquarium', 'material': '#mythicmetals:aquarium_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:banglum', 'material': '#mythicmetals:banglum_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:bronze', 'material': '#c:bronze_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:carmot', 'material': '#mythicmetals:carmot_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:copper', 'material': '#c:copper_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:durasteel', 'material': '#mythicmetals:durasteel_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:hallowed', 'material': 'mythicmetals:hallowed_ingot', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:kyber', 'material': '#mythicmetals:kyber_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:mythril', 'material': '#c:mythril_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:orichalcum', 'material': '#c:orichalcum_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:osmium', 'material': '#c:osmium_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:palladium', 'material': '#c:palladium_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:prometheum', 'material': '#mythicmetals:prometheum_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:quadrillum', 'material': '#mythicmetals:quadrillum_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:runite', 'material': '#mythicmetals:runite_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:star_platinum', 'material': '#mythicmetals:star_platinum', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
-    {'type': 'crafting', 'item': 'harvest_scythes:stormyx', 'material': '#mythicmetals:stormyx_ingots', 'rod': '#c:wood_sticks', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:adamantite', 'material': '#c:adamantite_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:aquarium', 'material': '#mythicmetals:aquarium_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:banglum', 'material': '#mythicmetals:banglum_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:bronze', 'material': '#c:bronze_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:carmot', 'material': '#mythicmetals:carmot_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:copper', 'material': '#c:copper_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:durasteel', 'material': '#mythicmetals:durasteel_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:hallowed', 'material': 'mythicmetals:hallowed_ingot', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:kyber', 'material': '#mythicmetals:kyber_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:mythril', 'material': '#c:mythril_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:orichalcum', 'material': '#c:orichalcum_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:osmium', 'material': '#c:osmium_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:palladium', 'material': '#c:palladium_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:prometheum', 'material': '#mythicmetals:prometheum_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:quadrillum', 'material': '#mythicmetals:quadrillum_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:runite', 'material': '#mythicmetals:runite_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:star_platinum', 'material': '#mythicmetals:star_platinum', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:stormyx', 'material': '#mythicmetals:stormyx_ingots', 'rod': '#c:rods/wooden', 'requires': ['mythicmetals']},
 
     {'type': 'crafting', 'item': 'harvest_scythes:gobber2', 'material': 'gobber2:gobber2_ingot', 'rod': 'gobber2:gobber2_rod', 'requires': ['gobber2']},
     {'type': 'crafting', 'item': 'harvest_scythes:gobber2_nether', 'material': 'gobber2:gobber2_ingot_nether', 'rod': 'gobber2:gobber2_rod_nether', 'requires': ['gobber2']},
     {'type': 'crafting', 'item': 'harvest_scythes:gobber2_end', 'material': 'gobber2:gobber2_ingot_end', 'rod': 'gobber2:gobber2_rod_end', 'requires': ['gobber2']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:diamold', 'material': 'diamold:diamold_ingot', 'rod': '#c:wood_sticks', 'requires': ['diamold']},
+    {'type': 'crafting', 'item': 'harvest_scythes:diamold', 'material': 'diamold:diamold_ingot', 'rod': '#c:rods/wooden', 'requires': ['diamold']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:flint', 'material': 'earlygame:flint_shard', 'rod': '#c:wood_sticks', 'requires': ['earlygame']},
-    {'type': 'crafting', 'item': 'harvest_scythes:copper', 'material': '#c:copper_ingots', 'rod': '#c:wood_sticks', 'requires': ['earlygame']},
+    {'type': 'crafting', 'item': 'harvest_scythes:flint', 'material': 'earlygame:flint_shard', 'rod': '#c:rods/wooden', 'requires': ['earlygame']},
+    {'type': 'crafting', 'item': 'harvest_scythes:copper', 'material': '#c:copper_ingots', 'rod': '#c:rods/wooden', 'requires': ['earlygame']},
 
     {'type': 'crafting', 'item': 'harvest_scythes:elven_silver', 'material': 'fantasycraft:silver_ingot', 'rod': 'fantasycraft:stone_rod', 'requires': ['fantasycraft']},
     {'type': 'crafting', 'item': 'harvest_scythes:dwarven_bronze', 'material': 'fantasycraft:bronze_ingot', 'rod': 'fantasycraft:stone_rod', 'requires': ['fantasycraft']},
     {'type': 'crafting', 'item': 'harvest_scythes:triton_prismarine', 'material': 'fantasycraft:prismarine_ingot', 'rod': 'fantasycraft:stone_rod', 'requires': ['fantasycraft']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:gravitite', 'material': 'the_aether:gravitite_gemstone', 'rod': '#c:wood_sticks', 'requires': ['the_aether']},
-    {'type': 'crafting', 'item': 'harvest_scythes:zanite', 'material': 'the_aether:zanite_gemstone', 'rod': '#c:wood_sticks', 'requires': ['the_aether']},
+    {'type': 'crafting', 'item': 'harvest_scythes:gravitite', 'material': 'the_aether:gravitite_gemstone', 'rod': '#c:rods/wooden', 'requires': ['the_aether']},
+    {'type': 'crafting', 'item': 'harvest_scythes:zanite', 'material': 'the_aether:zanite_gemstone', 'rod': '#c:rods/wooden', 'requires': ['the_aether']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:batet', 'material': 'hellish-materials:batet_gem', 'rod': '#c:wood_sticks', 'requires': ['hellish-materials']},
-    {'type': 'crafting', 'item': 'harvest_scythes:luss', 'material': 'hellish-materials:luss_ingot', 'rod': '#c:wood_sticks', 'requires': ['hellish-materials']},
+    {'type': 'crafting', 'item': 'harvest_scythes:batet', 'material': 'hellish-materials:batet_gem', 'rod': '#c:rods/wooden', 'requires': ['hellish-materials']},
+    {'type': 'crafting', 'item': 'harvest_scythes:luss', 'material': 'hellish-materials:luss_ingot', 'rod': '#c:rods/wooden', 'requires': ['hellish-materials']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:luxore', 'material': 'luxore:luxore_ingot', 'rod': '#c:wood_sticks', 'requires': ['luxore']},
+    {'type': 'crafting', 'item': 'harvest_scythes:luxore', 'material': 'luxore:luxore_ingot', 'rod': '#c:rods/wooden', 'requires': ['luxore']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:alexandrite', 'material': '#c:alexandrite', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:kunzite', 'material': '#c:kunzite', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:carbonado', 'material': '#c:carbonado', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:citrine', 'material': '#c:citrine', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:corundum', 'material': '#c:corundum', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:moissanite', 'material': '#c:moissanite', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:spinel', 'material': '#c:spinel', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:sapphire', 'material': '#c:sapphire', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:topaz', 'material': '#c:topaz', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
-    {'type': 'crafting', 'item': 'harvest_scythes:tourmaline', 'material': '#c:tourmaline', 'rod': '#c:wood_sticks', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:alexandrite', 'material': '#c:alexandrite', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:kunzite', 'material': '#c:kunzite', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:carbonado', 'material': '#c:carbonado', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:citrine', 'material': '#c:citrine', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:corundum', 'material': '#c:corundum', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:moissanite', 'material': '#c:moissanite', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:spinel', 'material': '#c:spinel', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:sapphire', 'material': '#c:sapphire', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:topaz', 'material': '#c:topaz', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
+    {'type': 'crafting', 'item': 'harvest_scythes:tourmaline', 'material': '#c:tourmaline', 'rod': '#c:rods/wooden', 'requires': ['more_gems']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:peridot', 'material': '#c:peridot_gems', 'rod': '#c:wood_sticks', 'requires': ['techreborn']},
-    {'type': 'crafting', 'item': 'harvest_scythes:sapphire', 'material': '#c:sapphires', 'rod': '#c:wood_sticks', 'filename': 'tr_sapphire', 'requires': ['techreborn']},
-    {'type': 'crafting', 'item': 'harvest_scythes:ruby', 'material': '#c:spinel', 'rod': '#c:wood_sticks', 'filename': 'tr_ruby', 'requires': ['techreborn']},
-    {'type': 'crafting', 'item': 'harvest_scythes:bronze', 'material': '#c:bronze_ingots', 'rod': '#c:wood_sticks', 'requires': ['techreborn', 'mythicmetals']},
+    {'type': 'crafting', 'item': 'harvest_scythes:peridot', 'material': '#c:peridot_gems', 'rod': '#c:rods/wooden', 'requires': ['techreborn']},
+    {'type': 'crafting', 'item': 'harvest_scythes:sapphire', 'material': '#c:sapphires', 'rod': '#c:rods/wooden', 'filename': 'tr_sapphire', 'requires': ['techreborn']},
+    {'type': 'crafting', 'item': 'harvest_scythes:ruby', 'material': '#c:spinel', 'rod': '#c:rods/wooden', 'filename': 'tr_ruby', 'requires': ['techreborn']},
+    {'type': 'crafting', 'item': 'harvest_scythes:bronze', 'material': '#c:bronze_ingots', 'rod': '#c:rods/wooden', 'requires': ['techreborn', 'mythicmetals']},
 
-    {'type': 'crafting', 'item': 'harvest_scythes:iron', 'material': 'pigsteel:pigsteel_ingot', 'rod': '#c:wood_sticks', 'filename': 'ps_iron', 'requires': ['pigsteel']},
+    {'type': 'crafting', 'item': 'harvest_scythes:iron', 'material': 'pigsteel:pigsteel_ingot', 'rod': '#c:rods/wooden', 'filename': 'ps_iron', 'requires': ['pigsteel']},
 
     {'type': 'crafting', 'item': 'harvest_scythes:adb_adamantium', 'material': 'adabraniummod:adamantium_ingot', 'rod': 'adabraniummod:adamantium_rod', 'requires': ['adabraniummod']},
     {'type': 'crafting', 'item': 'harvest_scythes:adb_vibranium', 'material': 'adabraniummod:vibranium_ingot', 'rod': 'adabraniummod:obsidian_rod', 'requires': ['adabraniummod']},
@@ -142,13 +142,13 @@ for recipe in recipes:
         if 'requires' in recipe:
             conditions = [
                 {
-                    "type": "forge:mod_loaded",
+                    "type": "neoforge:mod_loaded",
                     "modid": mod
                 }
                 for mod in recipe['requires']
             ]
-            base['conditions'] = [{"type": "forge:or", "values": conditions}] if len(conditions) > 1 else conditions
-        base['result'] = {'item': f"{recipe['item']}_{recipe_type}"}
+            base['neoforge:conditions'] = [{"type": "neoforge:or", "values": conditions}] if len(conditions) > 1 else conditions
+        base['result'] = {'id': f"{recipe['item']}_{recipe_type}"}
         if recipe['type'] == 'crafting':
             base['pattern'] = patterns[recipe_type]
             base['key']['#'] = item_or_tag(recipe['material'])

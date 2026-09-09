@@ -1,21 +1,21 @@
 {
-  "type": "minecraft:smithing_transform",
-  "base": {
-    "item": "harvest_scythes:diamond_scythe"
-  },
-  "addition": {
-    "item": "hellish-materials:vuld"
-  },
-  "result": {
-    "item": "harvest_scythes:vuld_scythe"
-  },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "hellish-materials"
-    }
-  ]
+    "type":  "minecraft:smithing_transform",
+    "base":  {
+                 "item":  "harvest_scythes:diamond_scythe"
+             },
+    "addition":  {
+                     "item":  "hellish-materials:vuld"
+                 },
+    "result":  {
+                   "id":  "harvest_scythes:vuld_scythe"
+               },
+    "template":  {
+                     "item":  "minecraft:netherite_upgrade_smithing_template"
+                 },
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "hellish-materials"
+                                }
+                            ]
 }

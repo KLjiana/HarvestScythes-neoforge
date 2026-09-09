@@ -1,26 +1,26 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "key": {
-    "#": {
-      "item": "adabraniummod:vibranium_ingot"
-    },
-    "|": {
-      "item": "adabraniummod:obsidian_rod"
-    }
-  },
-  "result": {
-    "item": "harvest_scythes:adb_vibranium_scythe",
-    "count": 1
-  },
-  "conditions": [
-    {
-      "type": "forge:mod_loaded",
-      "modid": "adabraniummod"
-    }
-  ],
-  "pattern": [
-    "###",
-    "  |",
-    "  |"
-  ]
+    "type":  "minecraft:crafting_shaped",
+    "key":  {
+                "#":  {
+                          "item":  "adabraniummod:vibranium_ingot"
+                      },
+                "|":  {
+                          "item":  "adabraniummod:obsidian_rod"
+                      }
+            },
+    "result":  {
+                   "count":  1,
+                   "id":  "harvest_scythes:adb_vibranium_scythe"
+               },
+    "pattern":  [
+                    "###",
+                    "  |",
+                    "  |"
+                ],
+    "neoforge:conditions":  [
+                                {
+                                    "type":  "neoforge:mod_loaded",
+                                    "modid":  "adabraniummod"
+                                }
+                            ]
 }
