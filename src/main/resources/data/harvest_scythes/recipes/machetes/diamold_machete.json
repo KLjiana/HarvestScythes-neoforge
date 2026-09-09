@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "diamold:diamold_ingot"
+    },
+    "|": {
+      "tag": "c:wood_sticks"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:diamold_machete",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "diamold"
+    }
+  ],
+  "pattern": [
+    "## ",
+    " # ",
+    " | "
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "c:rubies"
+    },
+    "|": {
+      "tag": "c:wood_sticks"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:ruby_machete",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "techreborn"
+    }
+  ],
+  "pattern": [
+    "## ",
+    " # ",
+    " | "
+  ]
+}

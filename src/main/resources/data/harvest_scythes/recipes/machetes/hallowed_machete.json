@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "mythicmetals:hallowed_ingot"
+    },
+    "|": {
+      "tag": "c:wood_sticks"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:hallowed_machete",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mythicmetals"
+    }
+  ],
+  "pattern": [
+    "## ",
+    " # ",
+    " | "
+  ]
+}

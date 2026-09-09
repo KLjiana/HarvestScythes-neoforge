@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "harvest_scythes:golden_scythe"
+  },
+  "addition": {
+    "item": "simplyplatinum:platinum_ingot"
+  },
+  "result": {
+    "item": "harvest_scythes:platinum_scythe"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "simplyplatinum"
+    }
+  ]
+}

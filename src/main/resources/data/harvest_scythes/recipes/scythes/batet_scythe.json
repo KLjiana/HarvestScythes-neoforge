@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "hellish-materials:batet_gem"
+    },
+    "|": {
+      "tag": "c:wood_sticks"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:batet_scythe",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "hellish-materials"
+    }
+  ],
+  "pattern": [
+    "###",
+    "  |",
+    "  |"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "c:bronze_ingots"
+    },
+    "|": {
+      "tag": "c:wood_sticks"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:bronze_machete",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "techreborn"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "mythicmetals"
+        }
+      ]
+    }
+  ],
+  "pattern": [
+    "## ",
+    " # ",
+    " | "
+  ]
+}

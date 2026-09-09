@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "naturesminerals:thounite_ingot"
+    },
+    "|": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:thounite_machete",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "naturesminerals"
+    }
+  ],
+  "pattern": [
+    "## ",
+    " # ",
+    " | "
+  ]
+}

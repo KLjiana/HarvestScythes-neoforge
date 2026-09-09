@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "fantasycraft:silver_ingot"
+    },
+    "|": {
+      "item": "fantasycraft:stone_rod"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:elven_silver_machete",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "fantasycraft"
+    }
+  ],
+  "pattern": [
+    "## ",
+    " # ",
+    " | "
+  ]
+}

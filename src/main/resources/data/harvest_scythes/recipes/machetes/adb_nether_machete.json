@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:smithing_transform",
+  "base": {
+    "item": "harvest_scythes:iron_machete"
+  },
+  "addition": {
+    "item": "minecraft:nether_brick"
+  },
+  "result": {
+    "item": "harvest_scythes:adb_nether_machete"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "adabraniummod"
+    }
+  ]
+}

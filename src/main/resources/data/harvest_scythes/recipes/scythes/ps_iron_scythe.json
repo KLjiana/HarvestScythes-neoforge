@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "pigsteel:pigsteel_ingot"
+    },
+    "|": {
+      "tag": "c:wood_sticks"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:iron_scythe",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "pigsteel"
+    }
+  ],
+  "pattern": [
+    "###",
+    "  |",
+    "  |"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "adabraniummod:adamantium_ingot"
+    },
+    "|": {
+      "item": "adabraniummod:adamantium_rod"
+    }
+  },
+  "result": {
+    "item": "harvest_scythes:adb_adamantium_scythe",
+    "count": 1
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "adabraniummod"
+    }
+  ],
+  "pattern": [
+    "###",
+    "  |",
+    "  |"
+  ]
+}
