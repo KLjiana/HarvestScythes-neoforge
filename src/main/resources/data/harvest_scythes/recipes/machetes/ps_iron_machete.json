@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "pigsteel:pigsteel_ingot"
+      "item": "pigsteel:pigsteel_chunk"
     },
     "|": {
       "tag": "c:wood_sticks"
